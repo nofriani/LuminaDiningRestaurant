@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Fine Dining - Gallery</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f1eb;
+            color: #222;
+        }
+
+        .header {
+            background: linear-gradient(to right, #0f0f0f, #1f1f1f);
+            color: white;
+            text-align: center;
+            padding: 28px 20px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: gold;
+            letter-spacing: 3px;
+            font-size: 34px;
+        }
+
+        .header p {
+            margin: 8px 0 0;
+            color: #ddd;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar {
+            background: rgba(17, 17, 17, 0.95);
+            text-align: center;
+            padding: 16px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: gold;
+        }
+
+        .gallery-section {
+            padding: 90px 30px;
+            background: linear-gradient(to bottom, #faf8f4, #ece7df);
+            text-align: center;
+        }
+
+        .gallery-title {
+            font-size: 42px;
+            margin-bottom: 12px;
+            color: #1f1f1f;
+            letter-spacing: 1px;
+        }
+
+        .gallery-subtitle {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 55px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+        .gallery-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            transition: transform 0.45s ease, box-shadow 0.45s ease;
+            position: relative;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 22px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            pointer-events: none;
+        }
+
+        .gallery-image-box {
+            position: relative;
+            overflow: hidden;
+            height: 260px;
+        }
+
+        .gallery-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.65s ease, filter 0.45s ease;
+        }
+
+        .gallery-card:hover .gallery-image-box img {
+            transform: scale(1.1);
+            filter: brightness(0.72);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.12));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 10px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+        }
+
+        .gallery-content {
+            padding: 24px 22px 22px;
+            text-align: left;
+        }
+
+        .gallery-content h3 {
+            margin: 0 0 12px;
+            color: #202020;
+            font-size: 24px;
+        }
+
+        .gallery-content p {
+            margin: 0;
+            color: #666;
+            line-height: 1.75;
+            font-size: 15px;
+            min-height: 95px;
+        }
+
+        .gallery-footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gallery-price {
+            color: #b8860b;
+            font-weight: bold;
+            font-size: 19px;
+        }
+
+        .gallery-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: linear-gradient(to right, #111, #2c2c2c);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-btn:hover {
+            background: linear-gradient(to right, #b8860b, #d4af37);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 18px rgba(184, 134, 11, 0.25);
+        }
+
+        .footer {
+            background: #0f0f0f;
+            color: #ddd;
+            text-align: center;
+            padding: 22px 20px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .gallery-title {
+                font-size: 34px;
+            }
+
+            .navbar a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .gallery-content p {
+                min-height: auto;
+            }
+        }
+        @media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>LUMINA FINE DINING</h1>
+        <p>Gallery & Signature Selection</p>
+    </div>
+
+   <div class="navbar">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#menu">Menu</a>
+    <a href="index.html#about">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="booking.html">Booking</a>
+    <a href="index.html#contact">Contact</a>
+</div>
+    
+    <div id="gallery" class="gallery-section">
+        <h2 class="gallery-title">Our Signature Gallery</h2>
+        <p class="gallery-subtitle">
+            Handcrafted selections prepared with elegance, freshness, and flavor.
+            Discover our premium desserts, drinks, and delightful breakfast creations.
+        </p>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card">
+                <div class="gallery-image-box">
+                    <img src="Images/gallery1.jpg" alt="Berry Smoothie Bowl">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">Fresh & Healthy</div>
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Berry Smoothie Bowl</h3>
+                    <p>
+                        A refreshing pink smoothie bowl topped with sliced strawberries,
+                        blueberries, and bananas. Perfect for a light, healthy, and colorful breakfast experience.
+                    </p>
+                    <div class="gallery-footer">
+                        <span class="gallery-price">RM 18.00</span>
+                        <a href="booking.html" class="gallery-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-box">
+                    <img src="Images/gallery2.jpg" alt="Caramel Iced Latte">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">Smooth & Chilled</div>
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Caramel Iced Latte</h3>
+                    <p>
+                        A creamy iced latte served in a glass jar with rich caramel drizzle,
+                        delivering a smooth coffee taste that is both bold and refreshing.
+                    </p>
+                    <div class="gallery-footer">
+                        <span class="gallery-price">RM 14.00</span>
+                        <a href="booking.html" class="gallery-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-box">
+                    <img src="Images/gallery3.jpg" alt="Blueberry French Toast">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">Sweet Delight</div>
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Blueberry French Toast</h3>
+                    <p>
+                        Golden toasted bread layered beautifully and topped with whipped cream,
+                        fresh blueberries, and berry sauce for a soft and indulgent finish.
+                    </p>
+                    <div class="gallery-footer">
+                        <span class="gallery-price">RM 22.00</span>
+                        <a href="booking.html" class="gallery-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-box">
+                    <img src="Images/gallery4.jpg" alt="Fruit Cream Crepes">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">Elegant Dessert</div>
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Fruit Cream Crepes</h3>
+                    <p>
+                        Soft rolled crepes filled with fresh fruit and topped with whipped cream,
+                        creating a delicate dessert with a luxurious and sweet presentation.
+                    </p>
+                    <div class="gallery-footer">
+                        <span class="gallery-price">RM 24.00</span>
+                        <a href="booking.html" class="gallery-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-box">
+                    <img src="Images/gallery5.jpg" alt="Granola Yogurt Parfait">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">Layered Goodness</div>
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Granola Yogurt Parfait</h3>
+                    <p>
+                        A layered parfait of creamy yogurt, crunchy granola, fresh strawberries,
+                        bananas, blueberries, and berries for a wholesome and satisfying treat.
+                    </p>
+                    <div class="gallery-footer">
+                        <span class="gallery-price">RM 20.00</span>
+                        <a href="booking.html" class="gallery-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-box">
+                    <img src="Images/gallery6.jpg" alt="Premium Honey Toast">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">Luxury Taste</div>
+                    </div>
+                </div>
+                <div class="gallery-content">
+                    <h3>Premium Honey Toast</h3>
+                    <p>
+                        Thick golden toast cubes stacked beautifully and finished with rich cream sauce,
+                        honey drizzle, and fresh mixed berries for a premium dessert experience.
+                    </p>
+                    <div class="gallery-footer">
+                        <span class="gallery-price">RM 26.00</span>
+                        <a href="booking.html" class="gallery-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Lumina Fine Dining. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

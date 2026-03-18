@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Fine Dining - Home</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        .header {
+            background: black;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: gold;
+            letter-spacing: 3px;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+        }
+
+        .navbar {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: gold;
+        }
+
+        .hero {
+            background: url("Images/hero.jpg") center/cover no-repeat;
+            height: 88vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 15px;
+            width: 70%;
+            max-width: 750px;
+        }
+
+        .overlay h2 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .overlay p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .section {
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .menu-section {
+            background: #f5f5f5;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            width: 280px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: goldenrod;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .about-section {
+            background: url("Images/about.jpg") center/cover no-repeat;
+            color: white;
+        }
+
+        .about-box {
+            background: rgba(0, 0, 0, 0.55);
+            width: 70%;
+            max-width: 850px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            line-height: 1.8;
+        }
+
+        .contact-section {
+            background: linear-gradient(to right, #111, #333);
+            color: white;
+        }
+
+        .contact-box {
+            background: white;
+            color: black;
+            max-width: 480px;
+            margin: 30px auto 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .contact-box a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 22px;
+            background: gold;
+            color: black;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .contact-box a:hover {
+            background: #d4af37;
+        }
+
+        .footer {
+            background: black;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>LUMINA FINE DINING</h1>
+        <p>Experience Luxury in Every Bite</p>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="booking.html">Booking</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="hero">
+        <div class="overlay">
+            <h2>Welcome to Lumina</h2>
+            <p>Where Taste Meets Elegance</p>
+        </div>
+    </div>
+
+   <div id="menu" class="section menu-section">
+    <h2>Our Signature Menu</h2>
+    <div class="cards">
+
+        <div class="card">
+            <h3>Healthy Bowls & Parfait</h3>
+            <p>
+                <strong>Berry Smoothie Bowl</strong><br>
+                Refreshing smoothie bowl with strawberries, blueberries, and banana<br>
+                <span class="price">RM 18.00</span>
+            </p>
+
+            <p>
+                <strong>Granola Yogurt Parfait</strong><br>
+                Creamy yogurt layered with granola, berries, and banana<br>
+                <span class="price">RM 20.00</span>
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Drinks & Coffee</h3>
+            <p>
+                <strong>Caramel Iced Latte</strong><br>
+                Smooth iced coffee with creamy milk and caramel drizzle<br>
+                <span class="price">RM 14.00</span>
+            </p>
+
+            <p>
+                <strong>Signature Latte</strong><br>
+                Fresh brewed premium latte with rich aroma and smooth texture<br>
+                <span class="price">RM 12.00</span>
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Desserts & Toast</h3>
+            <p>
+                <strong>Blueberry French Toast</strong><br>
+                Golden toast topped with whipped cream, blueberries, and berry sauce<br>
+                <span class="price">RM 22.00</span>
+            </p>
+
+            <p>
+                <strong>Fruit Cream Crepes</strong><br>
+                Soft crepes filled with fresh fruit and finished with whipped cream<br>
+                <span class="price">RM 24.00</span>
+            </p>
+
+            <p>
+                <strong>Premium Honey Toast</strong><br>
+                Thick toast cubes with rich cream sauce, honey, and mixed berries<br>
+                <span class="price">RM 26.00</span>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+    <div id="about" class="section about-section">
+        <div class="about-box">
+            <h2>About Lumina</h2>
+            <p>
+                Founded in 2020, Lumina Fine Dining is dedicated to delivering a premium dining
+                experience through elegant presentation, high-quality ingredients, and warm hospitality.
+                Our restaurant combines modern luxury with timeless culinary traditions to create memorable
+                moments for every guest. From signature appetizers to expertly prepared main courses and
+                handcrafted desserts, Lumina is a destination where taste meets refinement.
+            </p>
+        </div>
+    </div>
+
+    <div id="contact" class="section contact-section">
+        <h2>Contact & Reservation</h2>
+        <p><strong>Address:</strong> 123 Luxury Avenue, City Centre</p>
+        <p><strong>Phone:</strong> +60 12-345 6789</p>
+        <p><strong>Email:</strong> reservation@lumina.com</p>
+
+        <div class="contact-box">
+            <h3>Quick Access</h3>
+            <a href="gallery.html">View Gallery</a>
+            <a href="booking.html">Book Now</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>123 Luxury Avenue, City Centre</p>
+        <p>Instagram | Facebook | Twitter</p>
+        <p>&copy; 2026 Lumina Fine Dining. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>
